@@ -10,7 +10,9 @@ tags = ["Go","GNU/Linux"]
 
 わざわざgitにrepo作るのもアレだし
 
-```Go
+> ### TIP💡
+> zolaはコードスニペットに`linenos`を付け足すと行番号を表示できる。今回はそれを使ってみた。
+```go,linenos
 // NOTE: 連結リストの実装
 package main
 
