@@ -75,8 +75,10 @@ include_content = true
 #
 [extra]
 
-subtitle = "役に立たない記事も多くあるよ☆"
+subtitle = "一応PROGRAMMERらしい"
 # copyright = "Copyright <i class=\"fas fa-heart\" style=\"color: red;\"></i> authors year"
 analytics = ""
 katex_enable = true
 instantpage_enable = true
+
+favicon = "/img/favicon.ico"
