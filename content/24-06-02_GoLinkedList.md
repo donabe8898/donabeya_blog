@@ -16,7 +16,9 @@ tags = ["Go","GNU/Linux"]
 // NOTE: 連結リストの実装
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Node struct {
 	data int
@@ -81,8 +83,33 @@ func (list *LinkedList) Delete(pos int) error {
 		return fmt.Errorf("範囲外")
 	}
 
-	// 削除というか、ポインタの変更やねこれは
+	// ポインタの書き換え
 	current.next = current.next.next
+	return nil
+}
+
+func (list *LinkedList) DeleteElegant(pos int) error {
+	if list.head == nil {
+		return fmt.Errorf("リストにデータがありません")
+	}
+
+	if pos < 0 {
+		return fmt.Errorf("場所がありません: %d", pos)
+	}
+
+	p := &list.head
+
+	for i := 0; i < pos; i++ {
+		if *p == nil {
+			return fmt.Errorf("範囲外")
+		}
+		p = &(*p).next
+	}
+	if *p == nil {
+		return fmt.Errorf("position out of range")
+	}
+
+	*p = (*p).next
 	return nil
 }
 
@@ -105,7 +132,11 @@ func main() {
 
 	list.Delete(2)
 	list.Display()
+
+	list.Delete(1)
+	list.Display()
 }
+
 
 ```
 
